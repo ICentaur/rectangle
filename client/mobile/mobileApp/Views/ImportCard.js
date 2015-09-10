@@ -1,10 +1,12 @@
 'use strict';
 
 var React = require('react-native');
+var UIImagePickerManager = require('NativeModules').UIImagePickerManager;
 
 var {
   AppRegistry,
   Component,
+  Image,
   StyleSheet,
   Text,
   TextInput,
@@ -12,7 +14,24 @@ var {
   View,
 } = React;
 
+var pickerOpt = {
+  title: 'Select Image',
+  cancelButtonTitle: 'Cancel',
+  takePhotoButtonTitle: 'Take Photo of card...',
+  takePhotoButtonHidden: false,
+  chooseFromLibraryButtonTitle: 'Choose from Library...',
+  chooseFromLibraryButtonHidden: false,
+  returnBase64Image: true,
+  returnIsVertical: false,
+  quality: 0.2
+};
+
 var ImportCard = React.createClass({
+  getInitialState: function() {
+    return {
+      cardSource: '',
+    };
+  },
   render: function(){
     var spacer=<View style={styles.spacer}/>;
     return (
@@ -22,19 +41,16 @@ var ImportCard = React.createClass({
             <View style={styles.header}>
               <Text style={styles.titleText}>Update your business card</Text>
             </View>
+            <Image source={this.state.cardSource} style={styles.card_photo}/>
             {spacer}
             <View style={styles.footer}>
               <TouchableHighlight  
                 style={styles.button}
-                underlayColor={'orange'}>
+                underlayColor={'orange'}
+                onPress={(event) => 
+                  this._uploadImg()}>
                 <Text 
-                style={styles.buttonText}>Camera Roll</Text>
-              </TouchableHighlight>
-              <TouchableHighlight 
-                style={styles.button}
-                underlayColor={'orange'}>
-                <Text 
-                style={styles.buttonText}>Take a Photo</Text>
+                style={styles.buttonText}>Upload a card</Text>
               </TouchableHighlight>
             </View>
           </View>
@@ -42,6 +58,22 @@ var ImportCard = React.createClass({
       </View>
     );
   },
+  _uploadImg: function(){
+    UIImagePickerManager.showImagePicker(pickerOpt, (type, response) => {
+      if (type !== 'cancel') {
+        var source;
+        if (type === 'data') { // New photo taken OR passed returnBase64Image true -  response is the 64 bit encoded image data string
+          source = {uri: 'data:image/jpeg;base64,' + response, isStatic: true};
+        } else { // Selected from library - response is the URI to the local file asset
+          source = {uri: response};
+        }
+
+        this.setState({cardSource:source});
+      } else {
+        console.log('Cancel');
+      }
+    });
+  }
 });
 
 var styles = StyleSheet.create({
@@ -99,7 +131,12 @@ var styles = StyleSheet.create({
   spacer: {
     flex: 4,
     backgroundColor: '#1abc9c'
-  }
+  },
+  card_photo: {
+    width: 200,
+    height: 200,
+    alignSelf: 'center',    
+  },
 });
 
 module.exports = ImportCard;

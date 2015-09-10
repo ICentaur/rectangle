@@ -32,6 +32,8 @@
 		04BC29711B9FD4A200294514 /* ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04BC295F1B9FD4A200294514 /* ionicons.ttf */; };
 		04BC29721B9FD4A200294514 /* Material-Design-Iconic-Font.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04BC29601B9FD4A200294514 /* Material-Design-Iconic-Font.ttf */; };
 		04BC29731B9FD4A200294514 /* zocial-regular-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 04BC29611B9FD4A200294514 /* zocial-regular-webfont.ttf */; };
+		04BC29F61BA2339B00294514 /* UIImagePickerManager in Resources */ = {isa = PBXBuildFile; fileRef = 04BC29F51BA2339B00294514 /* UIImagePickerManager */; settings = {ASSET_TAGS = (); }; };
+		04BC2A081BA233EB00294514 /* UIImagePickerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 04BC2A071BA233EB00294514 /* UIImagePickerManager.m */; };
 		04D3EBB01B97CB0300926A01 /* main.jsbundle in Resources */ = {isa = PBXBuildFile; fileRef = 04D3EBAF1B97CB0300926A01 /* main.jsbundle */; };
 		133E29F31AD74F7200F7D852 /* libRCTLinking.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 78C398B91ACF4ADC00677621 /* libRCTLinking.a */; };
 		139105C61AF99C1200B5F7CC /* libRCTSettings.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 139105C11AF99BAD00B5F7CC /* libRCTSettings.a */; };
@@ -202,6 +204,8 @@
 		04BC295F1B9FD4A200294514 /* ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ionicons.ttf; sourceTree = "<group>"; };
 		04BC29601B9FD4A200294514 /* Material-Design-Iconic-Font.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Material-Design-Iconic-Font.ttf"; sourceTree = "<group>"; };
 		04BC29611B9FD4A200294514 /* zocial-regular-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "zocial-regular-webfont.ttf"; sourceTree = "<group>"; };
+		04BC29F51BA2339B00294514 /* UIImagePickerManager */ = {isa = PBXFileReference; lastKnownFileType = folder; path = UIImagePickerManager; sourceTree = "<group>"; };
+		04BC2A071BA233EB00294514 /* UIImagePickerManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = UIImagePickerManager.m; path = UIImagePickerManager/UIImagePickerManager.m; sourceTree = "<group>"; };
 		04D3EBAF1B97CB0300926A01 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		139105B61AF99BAD00B5F7CC /* RCTSettings.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTSettings.xcodeproj; path = "../node_modules/react-native/Libraries/Settings/RCTSettings.xcodeproj"; sourceTree = "<group>"; };
 		139FDEE61B06529A00C62182 /* RCTWebSocket.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTWebSocket.xcodeproj; path = "../node_modules/react-native/Libraries/WebSocket/RCTWebSocket.xcodeproj"; sourceTree = "<group>"; };
@@ -379,6 +383,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				04BC29F51BA2339B00294514 /* UIImagePickerManager */,
 				95D995961B9E7CB30031D9CA /* ReactNativeIcons.xcodeproj */,
 				959AEEB41B9BC7B000A96533 /* RCTMapboxGL.xcodeproj */,
 				95ED29721B96313900B4608D /* RCTCamera.xcodeproj */,
@@ -408,6 +413,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				04BC2A071BA233EB00294514 /* UIImagePickerManager.m */,
 				04BC29501B9FD4A100294514 /* FAKFontAwesome.h */,
 				04BC29511B9FD4A100294514 /* FAKFontAwesome.m */,
 				04BC29521B9FD4A100294514 /* FAKFoundationIcons.h */,
@@ -752,6 +758,7 @@
 				04BC29691B9FD4A200294514 /* FAKIonIcons.m in Resources */,
 				04BC296A1B9FD4A200294514 /* FAKMaterial.h in Resources */,
 				04BC296B1B9FD4A200294514 /* FAKMaterial.m in Resources */,
+				04BC29F61BA2339B00294514 /* UIImagePickerManager in Resources */,
 				04BC296C1B9FD4A200294514 /* FAKZocial.h in Resources */,
 				04BC296D1B9FD4A200294514 /* FAKZocial.m in Resources */,
 				04BC296E1B9FD4A200294514 /* FontAwesome.otf in Resources */,
@@ -786,6 +793,7 @@
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
+				04BC2A081BA233EB00294514 /* UIImagePickerManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -854,6 +862,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -875,6 +884,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
